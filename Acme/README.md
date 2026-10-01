@@ -25,7 +25,8 @@ ping -c 1 172.17.0.2
 
 La respuesta confirma que el host se encuentra activo y accesible desde nuestra máquina atacante.
 
-![Ping a la máquina Acme](./images/01-ping.png)
+<img width="501" height="144" alt="Captura de pantalla 2026-10-01 103127 - copia" src="https://github.com/user-attachments/assets/d5c90c8e-7826-447a-bbc2-f4792835f146" />
+
 
 ---
 
@@ -58,7 +59,8 @@ También identifica el título de la aplicación web:
 ACME Corporation - Portal en Mantenimiento
 ```
 
-![Escaneo Nmap de Acme](./images/02-nmap.png)
+<img width="773" height="353" alt="Captura de pantalla 2026-10-01 103133 - copia" src="https://github.com/user-attachments/assets/c3e47de9-d176-4c2a-b347-e4849dbff1c6" />
+
 
 ---
 
@@ -74,7 +76,8 @@ nos encontramos con el portal de infraestructura de ACME en modo mantenimiento.
 
 La propia aplicación proporciona una pista muy clara: el acceso a las consolas de gestión se realiza mediante **SSH** y recomienda iniciar una conexión con cualquier usuario para consultar el aviso del sistema.
 
-![Portal web de ACME](./images/03-web-portal.png)
+<img width="1048" height="768" alt="Captura de pantalla 2026-10-01 103219" src="https://github.com/user-attachments/assets/124316e4-200e-40c4-9906-8df4ec884c76" />
+
 
 Durante el reconocimiento también revisamos el archivo encontrado por Nmap:
 
@@ -84,7 +87,8 @@ http://172.17.0.2/migration_notes.txt
 
 El memorando confirma que el acceso al servidor se canaliza por el puerto 22 y que debemos consultar el banner de conexión SSH.
 
-![Archivo migration_notes.txt](./images/04-migration-notes.png)
+<img width="955" height="241" alt="Captura de pantalla 2026-10-01 103443" src="https://github.com/user-attachments/assets/f0e45e74-e19e-4248-9638-8b1771850fae" />
+
 
 Este paso demuestra por qué es importante revisar archivos expuestos por el servidor web y prestar atención a cualquier información obtenida durante la enumeración.
 
@@ -105,7 +109,8 @@ Usuario: usuario
 Password: P@ssw0rd2026_CTF!
 ```
 
-![Credenciales expuestas en el banner SSH](./images/05-ssh-banner.png)
+<img width="683" height="268" alt="Captura de pantalla 2026-10-01 103557" src="https://github.com/user-attachments/assets/0dc28588-f7cd-4f2d-98ec-2c26a5214210" />
+
 
 Esto supone una **divulgación de información sensible**, ya que un usuario no autenticado puede obtener credenciales válidas simplemente iniciando una conexión al servicio SSH.
 
@@ -144,7 +149,8 @@ Resultado:
 FLAG{nmap_recon_ssh_foothold_7a9f24e1}
 ```
 
-![Acceso SSH y flag de usuario](./images/06-ssh-access-user-flag.png)
+<img width="770" height="584" alt="Captura de pantalla 2026-10-01 103649" src="https://github.com/user-attachments/assets/6d4e1ef0-f5d7-46f6-a468-f96816a92fe2" />
+
 
 Con esto obtenemos nuestro **foothold** o acceso inicial al sistema.
 
@@ -178,7 +184,8 @@ Entre los resultados aparece:
 /usr/bin/bash
 ```
 
-![Enumeración de binarios SUID](./images/07-suid-enumeration.png)
+<img width="537" height="251" alt="Captura de pantalla 2026-10-01 103852" src="https://github.com/user-attachments/assets/8fe58b3a-369d-47ad-a5a1-316ea0e26951" />
+
 
 Que `/usr/bin/bash` tenga SUID activado es una configuración muy peligrosa si el binario pertenece a `root`.
 
@@ -223,7 +230,8 @@ Y obtenemos la flag final:
 FLAG{wpShell_cve_2026_63030_core_rce_root_99d10c8b}
 ```
 
-![Escalada a root y flag final](./images/08-root.png)
+<img width="658" height="228" alt="Captura de pantalla 2026-10-01 104036" src="https://github.com/user-attachments/assets/aaa2bc68-6bef-44a1-b459-0089bab91f38" />
+
 
 ---
 
