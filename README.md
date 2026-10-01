@@ -9,6 +9,7 @@ Los writeups incluyen reconocimiento, enumeración, explotación y escalada de p
 | Máquina | Dificultad | Técnicas principales |
 |---|---|---|
 | [Bypassme](./Bypassme/) | 🟢 Fácil | SQLi, LFI, SSH, UNIX Socket, Cron Job |
+| [Acme](./Acme/) | 🟢 Muy Fácil | Nmap, SSH, SUID, Bash |
 
 ## 🛠️ Herramientas utilizadas
 
@@ -16,5 +17,6 @@ Los writeups incluyen reconocimiento, enumeración, explotación y escalada de p
 - Gobuster
 - Socat
 - Netcat
+- SSH
 - Linux
 - Bash
