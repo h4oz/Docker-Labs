@@ -10,6 +10,7 @@ Los writeups incluyen reconocimiento, enumeración, explotación y escalada de p
 |---|---|---|
 | [Bypassme](./Bypassme/) | 🟢 Fácil | SQLi, LFI, SSH, UNIX Socket, Cron Job |
 | [Acme](./Acme/) | 🟢 Muy Fácil | Nmap, SSH, SUID, Bash |
+| [HedgeHog](./HedgeHog/) | 🟢 Muy Fácil | Wordlists, Hydra, SSH, sudo, NOPASSWD |
 
 ## 🛠️ Herramientas utilizadas
 
@@ -18,5 +19,6 @@ Los writeups incluyen reconocimiento, enumeración, explotación y escalada de p
 - Socat
 - Netcat
 - SSH
+- Hydra
 - Linux
 - Bash
