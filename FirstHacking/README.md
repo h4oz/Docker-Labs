@@ -11,6 +11,9 @@ nmap -sS -sCV -Pn -n 172.17.0.2
 
 Resultado: puerto 21/tcp abierto, `vsftpd 2.3.4`.
 
+<img width="606" height="226" alt="Captura de pantalla 2026-10-03 230446" src="https://github.com/user-attachments/assets/6a7a5a1e-b9fb-4c40-991b-f2c1b2b8ab9f" />
+
+
 ## Análisis de vulnerabilidad
 
 La versión `vsftpd 2.3.4` tiene un backdoor conocido (CVE-2011-2523): cualquier usuario que incluya `:)` en el campo de login dispara un listener en el puerto 6200 que da una shell como root.
@@ -18,6 +21,9 @@ La versión `vsftpd 2.3.4` tiene un backdoor conocido (CVE-2011-2523): cualquier
 ## Explotación
 
 Exploit público (Exploit-DB #49757), usando `telnetlib`:
+
+<img width="1269" height="1177" alt="Captura de pantalla 2026-10-03 233319" src="https://github.com/user-attachments/assets/7a5ea87c-7e8a-44a4-a6a4-0439df0213fd" />
+
 
 ```python
 #!/usr/bin/python3
@@ -57,8 +63,14 @@ Ejecución:
 ```bash
 python3 exploit.py 172.17.0.2
 ```
+<img width="617" height="546" alt="Captura de pantalla 2026-10-03 233243" src="https://github.com/user-attachments/assets/bb8a5056-81f5-4d92-a26b-8e3b2e6836f1" />
+
+
 
 Resultado: shell interactiva directa como **root** (confirmado con `whoami`).
+
+<img width="422" height="111" alt="Captura de pantalla 2026-10-03 233211" src="https://github.com/user-attachments/assets/20047a53-d6c6-4694-91be-de297c01c5dc" />
+
 
 ## Causa raíz
 
